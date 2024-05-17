@@ -26,7 +26,7 @@ spring:
   flyway:
     enabled: true
     baseline-on-migrate: true
-    schemas: order_service
+    schemas: customer_service
 
   kafka:
     bootstrap-servers: localhost:9092
