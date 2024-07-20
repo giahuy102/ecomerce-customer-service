@@ -1,0 +1,17 @@
+@namespace("com.ecomerce.ms.service")
+protocol Metadatas {
+	record Metadata {
+		@logicalType("timestamp_ms")
+		long submitTime;
+	}
+
+	record Saga {
+		@logicalType("uuid")
+		string instanceId;
+		string stepKey;
+	}
+
+	enum SagaStepStatus {
+		SUCCEEDED, FAILED, COMPENSATED
+	}
+}

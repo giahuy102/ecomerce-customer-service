@@ -28,7 +28,7 @@ group = 'com.ecomerce.ms.service.customer'
 version = '1.0.0-SNAPSHOT'
 
 java {
-	sourceCompatibility = '11'
+	sourceCompatibility = '17'
 }
 
 configurations {
