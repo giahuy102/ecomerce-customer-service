@@ -34,4 +34,8 @@ public class Customer extends AggregateRoot<UUID> {
     @JoinColumn(name = "address_id")
     @OneToOne
     private Address address;
+
+    public boolean satisfyOrderMakingCondition() {
+        return isActive && address.hasAllAddressInfo();
+    }
 }

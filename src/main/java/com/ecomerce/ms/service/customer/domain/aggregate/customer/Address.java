@@ -26,4 +26,11 @@ public class Address extends LocalEntity<UUID> {
     private String city;
 
     private String province;
+
+    public boolean hasAllAddressInfo() {
+        return !streetNumber.isBlank()
+                && !streetName.isBlank()
+                && !city.isBlank()
+                && !province.isBlank();
+    }
 }

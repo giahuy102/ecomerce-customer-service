@@ -12,6 +12,6 @@ protocol Metadatas {
 	}
 
 	enum SagaStepStatus {
-		SUCCEEDED, FAILED, COMPENSATED
+		SUCCEEDED, FAILED // Should only have 2 state, because other states are managed by orchestration
 	}
 }
