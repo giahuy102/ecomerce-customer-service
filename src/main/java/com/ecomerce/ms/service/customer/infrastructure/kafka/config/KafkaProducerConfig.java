@@ -2,7 +2,7 @@ package com.ecomerce.ms.service.customer.infrastructure.kafka.config;
 
 
 import com.ecomerce.ms.service.CustomerVerificationReply;
-import com.ecomerce.ms.service.OrderSagaKey;
+import com.ecomerce.ms.service.OrderingSagaKey;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
 import org.springframework.context.annotation.Bean;
@@ -26,7 +26,7 @@ public class KafkaProducerConfig {
     }
 
     @Bean
-    public KafkaTemplate<OrderSagaKey, CustomerVerificationReply> customerVerificationReplyTemplate() {
+    public KafkaTemplate<OrderingSagaKey, CustomerVerificationReply> customerVerificationReplyTemplate() {
         return new KafkaTemplate<>(producerFactory());
     }
 }

@@ -2,7 +2,7 @@
 server:
   port: 8080
   servlet:
-    context-path: /order-service
+    context-path: /customer-service
 
 spring:
   datasource:
@@ -33,6 +33,11 @@ spring:
     producer:
       key-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
       value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+      acks: all
+      retries: 3
+      properties:
+        enable.idempotence: true
+        max.in.flight.requests.per.connection: 3 # default is 5
     consumer:
       key-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
       value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer

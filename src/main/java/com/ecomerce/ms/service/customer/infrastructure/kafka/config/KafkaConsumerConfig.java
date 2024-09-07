@@ -1,7 +1,7 @@
 package com.ecomerce.ms.service.customer.infrastructure.kafka.config;
 
-import com.ecomerce.ms.service.CustomerVerificationEvent;
-import com.ecomerce.ms.service.OrderSagaKey;
+import com.ecomerce.ms.service.CustomerVerificationCommand;
+import com.ecomerce.ms.service.OrderingSagaKey;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
 import org.springframework.context.annotation.Bean;
@@ -27,8 +27,8 @@ public class KafkaConsumerConfig {
     }
 
     @Bean
-    public ConcurrentKafkaListenerContainerFactory<OrderSagaKey, CustomerVerificationEvent> kafkaListenerContainerFactory() {
-        ConcurrentKafkaListenerContainerFactory<OrderSagaKey, CustomerVerificationEvent> factory = new ConcurrentKafkaListenerContainerFactory<>();
+    public ConcurrentKafkaListenerContainerFactory<OrderingSagaKey, CustomerVerificationCommand> kafkaListenerContainerFactory() {
+        ConcurrentKafkaListenerContainerFactory<OrderingSagaKey, CustomerVerificationCommand> factory = new ConcurrentKafkaListenerContainerFactory<>();
         factory.setConsumerFactory(consumerFactory());
         return factory;
     }
