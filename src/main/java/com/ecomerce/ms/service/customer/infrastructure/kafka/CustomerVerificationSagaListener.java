@@ -39,7 +39,7 @@ public class CustomerVerificationSagaListener {
                 .addCallback(new ListenableFutureCallback<SendResult<OrderingSagaKey, CustomerVerificationReply>>() {
                     @Override
                     public void onFailure(Throwable ex) {
-                        log.info("Unable to send message=[\"{}\"] due to : {}", reply, ex.getMessage());
+                        log.error("Unable to send message=[\"{}\"] due to : {}", reply, ex.getMessage());
                     }
 
                     @Override

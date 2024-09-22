@@ -1,17 +1,21 @@
+CREATE TABLE addresses (
+    id UUID,
+    street_number VARCHAR(255),
+    street_name VARCHAR(255),
+    city VARCHAR(255),
+    province VARCHAR(255),
+    CONSTRAINT pk_address PRIMARY KEY(id)
+);
+
 CREATE TABLE customers (
     id UUID,
     full_name VARCHAR(255),
     email TEXT NOT NULL,
     is_active BOOL DEFAULT false,
-    CONSTRAINT pk_customer PRIMARY KEY(id)
-);
-
-CREATE TABLE customer_addresses (
-    id UUID,
-    address TEXT NOT NULL,
-    customer_id UUID,
-    CONSTRAINT fk_customer_address_customer
-        FOREIGN KEY(customer_id)
-        REFERENCES customers(id)
-        ON DELETE CASCADE
+    address_id UUID,
+    CONSTRAINT pk_customer PRIMARY KEY(id),
+    CONSTRAINT fk_customer_address
+        FOREIGN KEY(address_id)
+        REFERENCES addresses(id)
+        ON DELETE SET NULL
 );

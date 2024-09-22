@@ -1,8 +1,10 @@
 package com.ecomerce.ms.service.customer.domain.aggregate.customer;
 
 import com.huyle.ms.domain.AggregateRoot;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Column;
@@ -16,7 +18,9 @@ import java.util.UUID;
 @Getter
 @Setter
 @Builder
-@Table(name = "customers", schema = "customer_service")
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "customers")
 public class Customer extends AggregateRoot<UUID> {
 
     @Column(name = "full_name")
@@ -27,9 +31,6 @@ public class Customer extends AggregateRoot<UUID> {
 
     @Column(name = "is_active", nullable = false)
     private boolean isActive = false;
-
-    @Column(name = "user_id", nullable = false)
-    private UUID userId;
 
     @JoinColumn(name = "address_id")
     @OneToOne

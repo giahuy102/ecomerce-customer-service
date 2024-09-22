@@ -1,8 +1,10 @@
 package com.ecomerce.ms.service.customer.domain.aggregate.customer;
 
 import com.huyle.ms.domain.LocalEntity;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Column;
@@ -14,7 +16,9 @@ import java.util.UUID;
 @Getter
 @Setter
 @Builder
-@Table(name = "addresses", schema = "customer_service")
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "addresses")
 public class Address extends LocalEntity<UUID> {
 
     @Column(name = "street_number")
